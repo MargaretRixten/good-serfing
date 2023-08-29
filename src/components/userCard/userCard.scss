@@ -1,0 +1,18 @@
+.user-card {
+  padding: 14px;
+  border-radius: 2px;
+  background: #FFF;
+  border: 1px solid var(--bg-accent-elements, #DFE6EB);
+  &__title {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 120%;
+    color: #212121;
+  }
+  &__place {
+    color: #8494A1;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 120%;
+  }
+}
