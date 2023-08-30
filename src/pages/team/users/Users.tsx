@@ -11,11 +11,14 @@ import './users.scss';
 
 interface IProps {
 	selectedUsers: IUser[];
+	onHandleSave: () => void;
+	onHandleRemove: (id: number) => void;
 }
 
-function Users({ selectedUsers }: IProps) {
+function Users({ selectedUsers, onHandleSave, onHandleRemove }: IProps) {
 	const dispatch = useAppDispatch();
 	const search = useSelector(searchSelector);
+
 	useEffect(() => {
 		async function handle() {
 			try {
@@ -42,10 +45,14 @@ function Users({ selectedUsers }: IProps) {
 		<div className="users-wrapper">
 			<div className="users-list">
 				{selectedUsers.map((user) => (
-					<UserCard key={user.id} user={user} />
+					<UserCard onHandleRemove={onHandleRemove} key={user.id} user={user} />
 				))}
 			</div>
-			{!!selectedUsers.length && <Button className="save-btn">Сохранить</Button>}
+			{!!selectedUsers.length && (
+				<Button onClick={onHandleSave} className="save-btn">
+					Сохранить
+				</Button>
+			)}
 		</div>
 	);
 }

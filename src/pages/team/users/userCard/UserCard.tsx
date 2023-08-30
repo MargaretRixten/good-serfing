@@ -5,9 +5,10 @@ import { Icon } from '../../../../components/icon/Icon.tsx';
 
 interface IProps {
 	user: IUser;
+	onHandleRemove: (id: number) => void;
 }
 
-function UserCard({ user }: IProps) {
+function UserCard({ user, onHandleRemove }: IProps) {
 	return (
 		<div className="user-card">
 			<img className="user-card__img" src={user.image} alt="" />
@@ -15,7 +16,7 @@ function UserCard({ user }: IProps) {
 				<p className="user-card__name">{getFullName(user)}</p>
 				<h3 className="user-card__title">{user.email}</h3>
 				<p className="user-card__place">{user.address.city}</p>
-				<div className="user-card__close">
+				<div onClick={() => onHandleRemove(user.id)} className="user-card__close">
 					<Icon size={14} color="#212121" name="close" />
 				</div>
 			</div>

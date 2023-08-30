@@ -6,15 +6,18 @@ import { setSearchAction } from '../../../store/actions/users.ts';
 import { debounce } from 'lodash';
 import Autocomplete from '../../../components/autocomplete/Autocomplete.tsx';
 import { useSelector } from 'react-redux';
-import { userOptionsSelector, userSelector } from '../../../store/selectors/usersSelectors.ts';
+import { searchSelector, userOptionsSelector, userSelector } from '../../../store/selectors/usersSelectors.ts';
+import { IUser } from '../../../interfaces/users.ts';
 
 interface IProps {
 	handleAddUser: () => void;
+	preSelectedUsers: IUser[];
 }
 
 function Search({ handleAddUser }: IProps) {
 	const dispatch = useAppDispatch();
 	const usersOptions = useSelector(userOptionsSelector);
+	const search = useSelector(searchSelector);
 	const user = useSelector(userSelector);
 
 	const handleInputValue = (e: ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +28,7 @@ function Search({ handleAddUser }: IProps) {
 
 	return (
 		<div className="search">
-			<Autocomplete options={usersOptions || null} onChange={debouncedHandler} />
+			<Autocomplete options={usersOptions || null} onChange={debouncedHandler} value={search || ''} />
 			<Button onClick={handleAddUser} disabled={!user} className="add-btn" color="#fff" iconName="add">
 				Добавить участника
 			</Button>

@@ -1,5 +1,12 @@
 import { Dispatch } from 'redux';
-import { ISetSearchAction, ISetUserAction, ISetUsersAction, IUser, IUserRes } from '../../interfaces/users.ts';
+import {
+	ISetSearchAction,
+	ISetSelectedUsers,
+	ISetUserAction,
+	ISetUsersAction,
+	IUser,
+	IUserRes,
+} from '../../interfaces/users.ts';
 import { EUsersActions } from '../../enums/actions.enums.ts';
 import instance from '../../api/instance.ts';
 import { AxiosResponse } from 'axios';
@@ -16,6 +23,11 @@ export const setUserAction = (payload: IUser | null): ISetUserAction => ({
 
 export const setSearchAction = (payload: string | null): ISetSearchAction => ({
 	type: EUsersActions.SetSearch,
+	payload,
+});
+
+export const setSelectedUsersAction = (payload: IUser[] | null): ISetSelectedUsers => ({
+	type: EUsersActions.SetSelectedUsers,
 	payload,
 });
 

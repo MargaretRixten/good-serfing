@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, useRef, useState } from 'react';
+import { InputHTMLAttributes, useEffect, useRef, useState } from 'react';
 import './autocomplete.scss';
 import { useAppDispatch } from '../../store/hooks.ts';
 import { setUserAction } from '../../store/actions/users.ts';
@@ -8,14 +8,18 @@ import useOutsideClick from '../../hooks/useOutsideClick.ts';
 
 interface IAutocompleteProps extends InputHTMLAttributes<HTMLInputElement> {
 	options: { id: number; name: string; email: string; city: string; image: string }[] | null;
+	value: string;
 }
 
-function Autocomplete({ options, onChange }: IAutocompleteProps) {
+function Autocomplete({ options, onChange, value }: IAutocompleteProps) {
+	const inputRef = useRef<HTMLInputElement>(null);
 	const dispatch = useAppDispatch();
 	const users = useSelector(usersSelector);
-	const inputRef = useRef<HTMLInputElement>(null);
 
-	const [isOpen, setIsOpen] = useState<boolean>(false);
+	useEffect(() => {
+		if (!inputRef.current) return;
+		inputRef.current.value = value;
+	}, [value]);
 
 	const handleAddUser = (id: number) => {
 		const user = users?.find((user) => user.id === id);
@@ -23,6 +27,7 @@ function Autocomplete({ options, onChange }: IAutocompleteProps) {
 		if (!inputRef.current) return;
 		inputRef.current.value = user!.email;
 	};
+	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	const handleFocus = () => {
 		setIsOpen(true);
