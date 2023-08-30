@@ -9,6 +9,7 @@
   max-width: 274px;
   width: 100%;
   border: 1px solid #DFE6EB;
+
   &:hover {
     border: 1px solid #8494A1;
   }
@@ -19,6 +20,7 @@
     border-radius: 50%;
     border: 1px solid #8494A1;
   }
+
   &__wrapper {
     position: relative;
     display: flex;
@@ -30,18 +32,21 @@
     padding-right: 24px;
     z-index: 0;
   }
+
   &__title {
     font-size: 12px;
     font-weight: 500;
     line-height: 120%;
     color: #212121;
   }
+
   &__place {
     color: #8494A1;
     font-size: 12px;
     font-weight: 500;
     line-height: 120%;
   }
+
   &__close {
     position: absolute;
     top: 0;

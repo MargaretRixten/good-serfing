@@ -1,5 +1,5 @@
-import './input.scss';
 import { InputHTMLAttributes } from 'react';
+import './input.scss';
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {}
 

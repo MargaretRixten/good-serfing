@@ -1,9 +1,9 @@
-import TeamPage from './pages/team/TeamPage.tsx';
+import MainRoutes from './routes/mainRoutes/MainRoutes.tsx';
 
 function App() {
 	return (
 		<>
-			<TeamPage />
+			<MainRoutes />
 		</>
 	);
 }

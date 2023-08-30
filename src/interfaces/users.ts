@@ -10,6 +10,8 @@ export interface IUsersState {
 	user: IUser | null;
 	search: string | null;
 	selectedUsers: IUser[] | null;
+	isLoading: boolean;
+	isChanging: boolean;
 }
 
 export interface IHair {
@@ -88,9 +90,25 @@ export interface ISetSearchAction {
 	payload: string | null;
 }
 
-export interface ISetSelectedUsers {
+export interface ISetSelectedUsersAction {
 	type: EUsersActions.SetSelectedUsers;
 	payload: IUser[] | null;
 }
 
-export type TUsersActions = ISetUsersAction | ISetUserAction | ISetSearchAction | ISetSelectedUsers;
+export interface ISetIsLoadingUsersAction {
+	type: EUsersActions.SetIsLoading;
+	payload: boolean;
+}
+
+export interface ISetSetIsChangingUsersAction {
+	type: EUsersActions.SetIsChanging;
+	payload: boolean;
+}
+
+export type TUsersActions =
+	| ISetUsersAction
+	| ISetUserAction
+	| ISetSearchAction
+	| ISetSelectedUsersAction
+	| ISetIsLoadingUsersAction
+	| ISetSetIsChangingUsersAction;

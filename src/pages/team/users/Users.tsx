@@ -1,34 +1,21 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../../store/hooks.ts';
-import { searchSelector } from '../../../store/selectors/usersSelectors.ts';
-import { getSearchUsersThunk, getUsersThunk } from '../../../store/actions/users.ts';
+import {
+	isChangingUsersSelector,
+	searchSelector,
+	selectedUsersSelector,
+} from '../../../store/selectors/usersSelectors.ts';
+import { getSearchUsersThunk, SetIsChangingUsersAction, setSelectedUsersAction } from '../../../store/actions/users.ts';
 import UserCard from './userCard/UserCard.tsx';
-import { IUser } from '../../../interfaces/users.ts';
 import Button from '../../../components/button/Button.tsx';
-
 import './users.scss';
 
-interface IProps {
-	selectedUsers: IUser[];
-	onHandleSave: () => void;
-	onHandleRemove: (id: number) => void;
-}
-
-function Users({ selectedUsers, onHandleSave, onHandleRemove }: IProps) {
+function Users() {
 	const dispatch = useAppDispatch();
 	const search = useSelector(searchSelector);
-
-	useEffect(() => {
-		async function handle() {
-			try {
-				await dispatch(getUsersThunk());
-			} catch (err) {
-				console.log(err);
-			}
-		}
-		handle();
-	}, []);
+	const selectedUsers = useSelector(selectedUsersSelector);
+	const isChanging = useSelector(isChangingUsersSelector);
 
 	useEffect(() => {
 		async function getUsersSearch() {
@@ -41,14 +28,30 @@ function Users({ selectedUsers, onHandleSave, onHandleRemove }: IProps) {
 		}
 		getUsersSearch();
 	}, [search]);
+
+	const onHandleSave = () => {
+		dispatch(SetIsChangingUsersAction(false));
+	};
+
+	const onHandleRemove = (id: number) => {
+		const newPreselectedUsers = selectedUsers?.filter((user) => user.id !== id);
+		dispatch(setSelectedUsersAction(newPreselectedUsers || null));
+		dispatch(SetIsChangingUsersAction(true));
+	};
+
 	return (
 		<div className="users-wrapper">
-			<div className="users-list">
-				{selectedUsers.map((user) => (
-					<UserCard onHandleRemove={onHandleRemove} key={user.id} user={user} />
-				))}
-			</div>
-			{!!selectedUsers.length && (
+			{selectedUsers && !!selectedUsers.length ? (
+				<div className="users-list">
+					{selectedUsers.map((user) => (
+						<UserCard onHandleRemove={onHandleRemove} key={user.id} user={user} />
+					))}
+				</div>
+			) : (
+				<div style={{ marginBottom: '65px' }}>Нет добавленных участников</div>
+			)}
+
+			{isChanging && (
 				<Button onClick={onHandleSave} className="save-btn">
 					Сохранить
 				</Button>

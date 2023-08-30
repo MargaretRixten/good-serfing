@@ -8,12 +8,15 @@ button {
   border: 1px solid #3DABF7;
   color: #FFF;
   background: #3DABF7;
+
   &:hover {
     background: #3796d7;
   }
+
   &.empty {
     color: #3DABF7;
     background: #fff;
+
     &:hover {
       color: #FFF;
       background: #3DABF7;

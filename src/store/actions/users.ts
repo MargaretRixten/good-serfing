@@ -1,7 +1,9 @@
 import { Dispatch } from 'redux';
 import {
+	ISetIsLoadingUsersAction,
 	ISetSearchAction,
-	ISetSelectedUsers,
+	ISetSelectedUsersAction,
+	ISetSetIsChangingUsersAction,
 	ISetUserAction,
 	ISetUsersAction,
 	IUser,
@@ -26,19 +28,20 @@ export const setSearchAction = (payload: string | null): ISetSearchAction => ({
 	payload,
 });
 
-export const setSelectedUsersAction = (payload: IUser[] | null): ISetSelectedUsers => ({
+export const setSelectedUsersAction = (payload: IUser[] | null): ISetSelectedUsersAction => ({
 	type: EUsersActions.SetSelectedUsers,
 	payload,
 });
 
-export const getUsersThunk = () => async (dispatch: Dispatch) => {
-	try {
-		const { data } = await instance.get(`/users`);
-		console.log(data);
-	} catch (err) {
-		console.log(err);
-	}
-};
+export const setIsLoadingUsersAction = (payload: boolean): ISetIsLoadingUsersAction => ({
+	type: EUsersActions.SetIsLoading,
+	payload,
+});
+
+export const SetIsChangingUsersAction = (payload: boolean): ISetSetIsChangingUsersAction => ({
+	type: EUsersActions.SetIsChanging,
+	payload,
+});
 
 interface IGetSearchUsersParams {
 	search: string;

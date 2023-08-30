@@ -1,5 +1,8 @@
 export const enum ERoutes {
-    Desktop = '/',
-    Organization = '/organization',
-
+	Main = '/',
+	Description = `/description`,
+	Gallery = `/gallery`,
+	VideoGallery = `/video-gallery`,
+	Team = `/team`,
+	Reviews = `/reviews`,
 }

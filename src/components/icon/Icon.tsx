@@ -4,12 +4,11 @@ interface IconProps {
 	size: number;
 	color: string;
 	name: string;
-	props?: any;
 }
 
 const iconNamesData = ['vacancy', 'calendar', 'organization'];
 
-export const Icon = ({ size = 16, color = '#000000', name, ...props }: IconProps) => {
+export const Icon = ({ size = 16, color = '#000000', name }: IconProps) => {
 	if (!iconList[name]) return null;
 
 	const { viewBox, data } = iconList[name];
@@ -21,7 +20,6 @@ export const Icon = ({ size = 16, color = '#000000', name, ...props }: IconProps
 			height={size}
 			width={size}
 			fill={iconNamesData.includes(name) ? 'none' : color}
-			{...props}
 		>
 			{data}
 		</svg>

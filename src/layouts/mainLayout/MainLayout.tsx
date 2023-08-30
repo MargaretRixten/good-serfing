@@ -1,9 +1,10 @@
+import { ReactNode } from 'react';
 import Header from './header/Header.tsx';
 import NavBar from './navBar/NavBar.tsx';
 import './mainLayout.scss';
 
 interface IProps {
-	children: React.ReactNode;
+	children: ReactNode;
 }
 
 function MainLayout({ children }: IProps) {

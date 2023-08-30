@@ -1,6 +1,7 @@
-import './pmCard.scss';
-import iconLink from './../../assets/imgs/user.jpg';
 import Button from '../button/Button.tsx';
+import iconLink from './../../assets/imgs/user.jpg';
+import './pmCard.scss';
+
 function PmCard() {
 	return (
 		<div className="pm-card">

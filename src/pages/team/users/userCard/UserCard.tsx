@@ -1,7 +1,7 @@
-import './userCard.scss';
+import { Icon } from '../../../../components/icon/Icon.tsx';
 import { IUser } from '../../../../interfaces/users.ts';
 import { getFullName } from '../../../../utils/helpers/getFullName.ts';
-import { Icon } from '../../../../components/icon/Icon.tsx';
+import './userCard.scss';
 
 interface IProps {
 	user: IUser;

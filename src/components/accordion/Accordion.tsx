@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { Icon } from '../icon/Icon.tsx';
 import { NavLink } from 'react-router-dom';
+import cn from 'classnames';
+import { Icon } from '../icon/Icon.tsx';
+import { ILinks } from '../../data/navbar.ts';
 import './accordion.scss';
 
 interface IProps {
 	title: string;
-	content: { id: number; name: string; link: string }[];
+	content: ILinks[];
 	iconName: string;
 }
 
@@ -14,7 +16,7 @@ const Accordion = ({ title, content, iconName }: IProps) => {
 
 	return (
 		<div className="accordion-item">
-			<div className={`${isActive ? 'active' : ''} accordion-title`} onClick={() => setIsActive(!isActive)}>
+			<div className={cn('accordion-title', { 'is-active': isActive })} onClick={() => setIsActive(!isActive)}>
 				<Icon size={40} color={isActive ? '#212121' : '#8494A1'} name={iconName} />
 				<div className="accordion-name">{title}</div>
 			</div>
@@ -22,7 +24,10 @@ const Accordion = ({ title, content, iconName }: IProps) => {
 				<ul className="accordion-content">
 					{content.map((link) => (
 						<li key={link.id}>
-							<NavLink className="accordion-link" to={link.link}>
+							<NavLink
+								className={({ isActive }) => `accordion-link  ${isActive ? 'is-active' : ''}`}
+								to={link.link}
+							>
 								{link.name}
 							</NavLink>
 						</li>

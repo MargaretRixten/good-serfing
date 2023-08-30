@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
-import './button.scss';
 import { Icon } from '../icon/Icon.tsx';
+import './button.scss';
 
 interface CustomButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
 	iconName?: string;

@@ -20,3 +20,5 @@ export const userOptionsSelector = createSelector(state, ({ users }) => {
 export const userSelector = createSelector(state, ({ user }) => user);
 export const searchSelector = createSelector(state, ({ search }) => search);
 export const selectedUsersSelector = createSelector(state, ({ selectedUsers }) => selectedUsers);
+export const isLoadingUsersSelector = createSelector(state, ({ isLoading }) => isLoading);
+export const isChangingUsersSelector = createSelector(state, ({ isChanging }) => isChanging);

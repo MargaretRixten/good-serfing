@@ -4,7 +4,7 @@
   align-items: center;
   gap: 24px;
 
-  &.active {
+  &.is-active {
     .accordion-name {
       color: #212121;
       font-weight: 500;
@@ -36,4 +36,8 @@
 
 .accordion-link {
   color: #8494A1;
+
+  &.is-active {
+    color: #212121;
+  }
 }

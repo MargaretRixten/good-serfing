@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
 }
+
 .autocomplete-title {
   color: #8494A1;
   font-size: 14px;
@@ -9,6 +10,7 @@
   line-height: 100%;
   margin-bottom: 5px;
 }
+
 .autocomplete-field {
   width: 100%;
   height: 44px;
@@ -44,11 +46,18 @@
   padding: 5px 10px;
   border-bottom: 1px solid #f0f0f0;
   cursor: pointer;
+
+  &.is-active {
+    background: #f0f0f0;
+    cursor: default;
+  }
+
   &:last-child {
     border-bottom: none;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
   }
+
   &:hover {
     background: #f0f0f0;
   }

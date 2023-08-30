@@ -1,7 +1,8 @@
-import './navBar.scss';
 import PmCard from '../../../components/pmCard/PmCard.tsx';
 import Accordion from '../../../components/accordion/Accordion.tsx';
 import { links } from '../../../data/navbar.ts';
+import './navBar.scss';
+
 function NavBar() {
 	return (
 		<nav className="navbar">
