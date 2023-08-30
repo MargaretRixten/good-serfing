@@ -1,5 +1,9 @@
-.button {
-  padding: 10px 50px;
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
   border-radius: 10px;
   border: 1px solid #3DABF7;
   color: #FFF;

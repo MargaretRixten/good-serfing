@@ -1,12 +1,11 @@
-import TeamPage from "./pages/TeamPage.tsx";
+import TeamPage from './pages/team/TeamPage.tsx';
 
 function App() {
-
-  return (
-    <>
-      <TeamPage/>
-    </>
-  )
+	return (
+		<>
+			<TeamPage />
+		</>
+	);
 }
 
-export default App
+export default App;

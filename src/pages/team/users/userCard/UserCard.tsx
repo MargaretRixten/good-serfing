@@ -1,0 +1,26 @@
+import './userCard.scss';
+import { IUser } from '../../../../interfaces/users.ts';
+import { getFullName } from '../../../../utils/helpers/getFullName.ts';
+import { Icon } from '../../../../components/icon/Icon.tsx';
+
+interface IProps {
+	user: IUser;
+}
+
+function UserCard({ user }: IProps) {
+	return (
+		<div className="user-card">
+			<img className="user-card__img" src={user.image} alt="" />
+			<div className="user-card__wrapper">
+				<p className="user-card__name">{getFullName(user)}</p>
+				<h3 className="user-card__title">{user.email}</h3>
+				<p className="user-card__place">{user.address.city}</p>
+				<div className="user-card__close">
+					<Icon size={14} color="#212121" name="close" />
+				</div>
+			</div>
+		</div>
+	);
+}
+
+export default UserCard;
