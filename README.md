@@ -1,27 +1,10 @@
-# React + TypeScript + Vite
+# Good serfing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### [Макет](https://www.figma.com/file/y2ZN6MY0F0lC9UgbHD5TUb/Goodsurfing_Registration-of-host_Team?type=design&node-id=0%3A367&mode=design&t=gTdsYXU1SWGFbgt0-1)
+### [ТЗ](https://docs.google.com/document/d/1T_vxadOI4BgzGaolPd417pyyif72oB_R3rRvzgeXVLc/edit)
 
-Currently, two official plugins are available:
+### Описание
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Api было выбрано [dummyjson](https://dummyjson.com), потому что там есть картинки у пользователей, но в этом api не предусмотрен поиск только по email. Он затрагивает сразу несколько полей
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Ссылка на готовый проект: [тык](https://margaretrixten.github.io/good-serfing/team)
