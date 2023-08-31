@@ -1,7 +1,6 @@
 import { ChangeEvent, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { debounce } from 'lodash';
-import Button from '../../../components/button/Button.tsx';
 import { useAppDispatch } from '../../../store/hooks.ts';
 import {
 	SetIsChangingUsersAction,
@@ -18,6 +17,7 @@ import {
 	usersSelector,
 } from '../../../store/selectors/usersSelectors.ts';
 import Autocomplete from '../../../components/autocomplete/Autocomplete.tsx';
+import Button from '../../../components/button/Button.tsx';
 import './search.scss';
 
 function Search() {
