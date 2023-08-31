@@ -7,4 +7,4 @@
 
 Api было выбрано [dummyjson](https://dummyjson.com), потому что там есть картинки у пользователей, но в этом api не предусмотрен поиск только по email. Он затрагивает сразу несколько полей
 
-### Ссылка на готовый проект: [тык](https://margaretrixten.github.io/good-serfing/team)
+### Ссылка на готовый проект: [тык](https://margaretrixten.github.io/good-serfing)
