@@ -12,6 +12,9 @@
 
   &:hover {
     border: 1px solid #8494A1;
+    .user-card__close {
+      opacity: 1;
+    }
   }
 
   &__img {
@@ -49,8 +52,10 @@
 
   &__close {
     position: absolute;
+    opacity: 0;
     top: 0;
     right: 0;
     cursor: pointer;
+    transition: 0.5s all;
   }
 }

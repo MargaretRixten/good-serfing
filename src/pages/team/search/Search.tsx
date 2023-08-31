@@ -8,8 +8,10 @@ import {
 	setSearchAction,
 	setSelectedUsersAction,
 	setUserAction,
+	setUsersAction,
 } from '../../../store/actions/users.ts';
 import {
+	isLoadingUsersSelector,
 	selectedUsersSelector,
 	userOptionsSelector,
 	userSelector,
@@ -24,6 +26,7 @@ function Search() {
 	const user = useSelector(userSelector);
 	const usersOptions = useSelector(userOptionsSelector);
 	const selectedUsers = useSelector(selectedUsersSelector);
+	const isLoading = useSelector(isLoadingUsersSelector);
 
 	const [value, setValue] = useState<string>('');
 
@@ -48,6 +51,8 @@ function Search() {
 		dispatch(setSelectedUsersAction(selectedUsers?.length ? [...selectedUsers, user] : [user]));
 		dispatch(setUserAction(null));
 		setValue('');
+		dispatch(setSearchAction(null));
+		dispatch(setUsersAction(null));
 		dispatch(SetIsChangingUsersAction(true));
 	};
 
@@ -57,8 +62,9 @@ function Search() {
 				options={usersOptions || null}
 				onChange={debouncedHandler}
 				value={value || ''}
-				handleSelectedUserUser={handleSelectedUserUser}
-				selectedUsers={selectedUsers}
+				handleSelectedItems={handleSelectedUserUser}
+				selectedItems={selectedUsers}
+				isLoading={isLoading}
 			/>
 			<Button onClick={handleAddUser} disabled={!user} className="add-btn" color="#fff" iconName="add">
 				Добавить участника

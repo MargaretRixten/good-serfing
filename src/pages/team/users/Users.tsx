@@ -6,7 +6,12 @@ import {
 	searchSelector,
 	selectedUsersSelector,
 } from '../../../store/selectors/usersSelectors.ts';
-import { getSearchUsersThunk, SetIsChangingUsersAction, setSelectedUsersAction } from '../../../store/actions/users.ts';
+import {
+	getSearchUsersThunk,
+	SetIsChangingUsersAction,
+	setIsLoadingUsersAction,
+	setSelectedUsersAction,
+} from '../../../store/actions/users.ts';
 import UserCard from './userCard/UserCard.tsx';
 import Button from '../../../components/button/Button.tsx';
 import './users.scss';
@@ -21,9 +26,12 @@ function Users() {
 		async function getUsersSearch() {
 			try {
 				if (search === null) return;
+				dispatch(setIsLoadingUsersAction(true));
 				await dispatch(getSearchUsersThunk({ search }));
 			} catch (err) {
 				console.log(err);
+			} finally {
+				dispatch(setIsLoadingUsersAction(false));
 			}
 		}
 		getUsersSearch();
@@ -48,7 +56,7 @@ function Users() {
 					))}
 				</div>
 			) : (
-				<div style={{ marginBottom: '65px' }}>Нет добавленных участников</div>
+				<div className="users-warning">Нет добавленных участников</div>
 			)}
 
 			{isChanging && (

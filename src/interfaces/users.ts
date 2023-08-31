@@ -5,6 +5,14 @@ export interface IUserRes extends IPagination {
 	users: IUser[];
 }
 
+export interface IUserOption {
+	id: number;
+	name: string;
+	email: string;
+	city: string;
+	image: string;
+}
+
 export interface IUsersState {
 	users: IUser[] | null;
 	user: IUser | null;

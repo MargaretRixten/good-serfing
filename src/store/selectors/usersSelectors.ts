@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 import { RootState } from '../rootReducer';
 import { getFullName } from '../../utils/helpers/getFullName.ts';
+import { IUserOption } from '../../interfaces/users.ts';
 
 const state = ({ users }: RootState) => users;
 
@@ -14,7 +15,7 @@ export const userOptionsSelector = createSelector(state, ({ users }) => {
 			email: user.email,
 			city: user.address.city,
 			image: user.image,
-		};
+		} as IUserOption;
 	});
 });
 export const userSelector = createSelector(state, ({ user }) => user);
